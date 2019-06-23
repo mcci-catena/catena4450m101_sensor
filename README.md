@@ -18,9 +18,6 @@
 	- [Starting Over](#starting-over)
 - [Notes](#notes)
 	- [Getting Started with The Things Network](#getting-started-with-the-things-network)
-		- [Create an account (if necessary)](#create-an-account-if-necessary)
-		- [Create an application](#create-an-application)
-		- [Add your device to the application](#add-your-device-to-the-application)
 	- [Data Format](#data-format)
 	- [Unplugging the USB Cable while running on batteries](#unplugging-the-usb-cable-while-running-on-batteries)
 	- [Deep sleep and USB](#deep-sleep-and-usb)
@@ -73,7 +70,7 @@ If you already have entries in that list, use a comma (`,`) to separate the entr
 
 Next, open the board manager. `Tools>Board:...`, and get up to the top of the menu that pops out -- it will give you a list of boards. Search for `MCCI` in the search box and select `MCCI Catena SAMD Boards`. An `[Install]` button will appear to the right; click it.
 
-Then go to `Tools>Board:...` and scroll to the bottom. You should see `Catena 4450`; select that.
+Then go to `Tools>Board:...` and scroll to the bottom. You should see `MCCI Catena 4450`; select that.
 
 ## Select your desired band
 
@@ -167,9 +164,9 @@ This sketch depends on the following libraries.
 
 Shutdown the Arduino IDE and restart it, just in case.
 
-Ensure selected board is 'Catena 4450' (in the GUI, check that `Tools`>`Board "..."` says `"Catena 4450"`.
+Ensure selected board is 'MCCI Catena 4450' (in the GUI, check that `Tools`>`Board "..."` says `"MCCI Catena 4450"`.
 
-In the IDE, use File>Open to load the `Catena4450m101_sensor.ino` sketch. (Remember, in step 1 you cloned `Catena-Sketches` -- find that, and navigate to `{somewhere}/Catena-Sketches/catena4450_m101/`)
+In the IDE, use File>Open to load the `Catena4450m101_sensor.ino` sketch. (Remember, in step 1 you cloned `Catena-Sketches` -- find that, and navigate to `{somewhere}/Catena-Sketches/catena4450m101_sensor/`)
 
 Follow normal Arduino IDE procedures to build the sketch: `Sketch`>`Verify/Compile`. If there are no errors, go to the next step.
 
@@ -244,7 +241,7 @@ For OTAA, we'll need to load three items into the device. (We'll use USB to load
 
 3. *The application key, or "AppKey"*. This is a 16-byte number.
 
-If you're using The Things Network as your network provider, see the note below: [Getting Started with The Things Network](#getting-started-with-the-things-network). This walks you through the process of creating an application and registering a device. During that process, you will input the DevEUI (we suggest using the serial number printed on the Caten  a). At the end of the process, The Things Network will supply you with the required AppEUI and Application Key.
+If you're using The Things Network as your network provider, see the notes in the separate file in this repository: [Getting Started with The Things Network](../extra/Getting-Started-With-The-Things-Network.md). This walks you through the process of creating an application and registering a device. During that process, you will input the DevEUI (we suggest using the serial number printed on the Catena). At the end of the process, The Things Network will supply you with the required AppEUI and Application Key.
 
 For other networks, follow their instructions for determining the DevEUI and getting the AppEUI and AppKey.
 
@@ -300,57 +297,7 @@ Then reset your Catena, and return to [Provision your Catena 4450](#provision-yo
 
 ### Getting Started with The Things Network
 
-#### Create an account (if necessary)
-
-Go to https://console.thethingsnetwork.org and follow the instructions to create an account.
-
-#### Create an application
-
-After you create an account, you'll see this screen.
-
-![Main Console Screen](./assets/console-mainscreen.png)
-
-You have two choices:
-
-- Applications
-- Gateways
-
-Click on Applications, and you'll see the following.
-
-![First Application Screen](./assets/console-application-first.png)
-
-Click on "Get started by adding one" (or "Create a new application" if you already have one).
-
-![Application creation form](./assets/console-application-create.png)
-
-The first entry ("Application ID") is the unique name for your application/project. This name is used in some APIs as part of URLs, so it must follow DNS rules: it may consist only of lower-case letters, digits, and the hyphen or dash (`-`) character. For example, `sensor-project-1` is valid, but `My great project!` is not.
-
-The second entry ("Description") is the description of your project.
-
-The third entry is not changed by you.
-
-The fourth entry (Handler registration) selects the router for your project. If you're in US, click in the box (left of the green check-mark), and scroll down to `ttn-handler-us-west`.
-
-Then click "Add application".
-
-#### Add your device to the application
-
-You should see the following screen.
-
-![Application screen no devices](./assets/console-application-nodevs.png)
-
-Click on "register device" (to the right of DEVICES), and you'll see the following:
-
-![Device registration screen](./assets/console-register-device.png)
-
-The first field ("Device ID") is again a DNS-like name. It consists of lower-case digits, numbers and dashes, and it must not begin or end with a dash.
-
-For the second field ("Device EUI") you have two choices.
-
-- you can use the EUI from the printed label on your Catena, or
-- you can ask console to generate an EUI for you.
-
-Ignore the final two fields, and click "Register" at the bottom.
+These notes are in a separate file in this repository, [Getting Started with The Things Network](../extra/Getting-Started-with-The-Things-Network.md).
 
 ### Data Format
 
